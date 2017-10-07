@@ -1,35 +1,17 @@
-<!DOCTYPE html>
-<html lang=" en" >
-<head>
-	<meta charset="utf-8">
-	<title>CMM 19 </title>
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
-	<link rel="stylesheet"  href="/assets/home.css">
-</head>
-<body>
-	<header>
-		<div class="has-text-centered">
-			<img src="/assets/images/logo.png" alt="" width="145" height="auto">
-		</div>
-		<nav class="navbar-tabs">
-            <a href="#" class="navbar-item">WORK</a>
-			<a href="#" class="navbar-item">REVIWE</a>
-			<a href="#" class="navbar-item">PHOTO</a>
-			<a href="#" class="navbar-item">RORD</a>
-			<a href="#" class="navbar-item">EAT</a>
-			<a href="#" class="navbar-item">YOLO</a>
-			<a href="#" class="navbar-item">TRAVEL</a>
-			<a href="#" class="navbar-item">DRINK</a>
-		</nav>
+{% extends 'layout/base.twig' %} 
 
+{% block stylesheet %}
+ <link rel="stylesheet"  href="/assets/home.css">
+{% endblock %}
 
-	</header> 
+ {% block content %}
+	
 	<main>
 		<section class="benner">
 			<div class="highlight">
 				<div class="columns">
-					<div class="column highlight-item">
-					  <h1 class="is-size-1">HELLO FOOD </h1>
+					<div class="column highlight-item" style="background-image: url({{highlight.url}});">
+					  <h1>{{ highlight.title }}s </h1>
 					 	
 					 		</div>
 					 			
@@ -46,18 +28,13 @@
 				</div>
 		<div class="thumbnail">
 			<div class="columns is-marginless">
-				<div class="column thumbnail-item is-paddingless" style="background-image: url(/assets/images/home/banner/thumbnail-1.jpg);" >
-					อาหารคลีน
+				{% for item in thumbnail %}
+				<div class="column thumbnail-item is-paddingless" style="background-image: url({{ item.url }});">
+					{{ item.title }}
+					
 				</div>
-                <div class="column thumbnail-item is-paddingless" style="background-image: url(/assets/images/home/banner/thumbnail-2.jpg);">
-					อาหารไทย
-				</div>
-			    <div class="column thumbnail-item is-paddingless" style="background-image: url(/assets/images/home/banner/thumbnail-3.jpg);">
-					อาหารจีน
-				</div>
-				<div class="column thumbnail-item is-paddingless" style="background-image: url(/assets/images/home/banner/thumbnail-4.jpg);">
-					อาหารฝรั่ง
-				</div>
+				{% endfor %}
+                
 			</div>
 			</div>
 		</section>
@@ -177,5 +154,5 @@
 
 		
 	</main>
-</body>
-</html>
+{% endblock %}
+
